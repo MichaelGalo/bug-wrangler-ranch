@@ -48,10 +48,6 @@ console.log(
   "\n\nYour journey will take you through the wildness of the American Midwest and across the following terrain"
 );
 
-// we're probably looking at adding a conditional - booleans
-// if area === "plain"
-// then return plain
-
 const terrainTypes = new Set(); // this only lets me keep unique items in it. I have to say new first otherwise it fires like a normal function
 
 for (const area of journey) {
