@@ -1,11 +1,11 @@
-const { roundup } = require("./cattle.js")
-const { hireDrovers } = require("./drovers.js")
-const { journeyMaker } = require("./journey.js")
+const { roundup } = require("./cattle.js");
+const { hireDrovers } = require("./drovers.js");
+const { journeyMaker } = require("./journey.js");
 
-const cattleToDrive = 50
-const drovers = hireDrovers(cattleToDrive)
-const cattle = roundup(cattleToDrive)
-const journey = journeyMaker()
+const cattleToDrive = 50;
+const drovers = hireDrovers(cattleToDrive);
+const cattle = roundup(cattleToDrive);
+const journey = journeyMaker();
 
 console.log(`
 ************************************************
@@ -21,18 +21,42 @@ console.log(`
                              '\------(oo)
                                ||   (__)
                                ||w--||     \\|/
-`)
+`);
 
-console.log(`You will be accompanying ${drovers.length} drovers as they drive ${cattleToDrive} cattle to Old Red's Ranch for grazing`)
-console.log(`\nThe herd is made of up the following cattle (only their breed is shown):`)
-console.log(`${cattle}\n`)
+console.log(
+  `You will be accompanying ${drovers.length} drovers as they drive ${cattleToDrive} cattle to Old Red's Ranch for grazing`
+);
+console.log(`\nThe herd is made of up the following types cattle:`);
 
-console.log("Here is the team of drovers you will be joining")
+//added for loop
+
+const breedInfo = [];
+for (const cow of cattle) {
+  breedInfo.push(cow.breed);
+}
+const concatenatedBreeds = breedInfo.join(", "); // I NEEEEEEED TO CONCATENATE I THINK!
+console.log(`${concatenatedBreeds}\n`);
+
+// next step below
+
+console.log("Here is the team of drovers you will be joining");
 for (const drover of drovers) {
-    console.log(`\t* ${drover.first_name} ${drover.last_name}`)
+  console.log(`\t* ${drover.first_name} ${drover.last_name}`);
 }
 
-console.log("\n\nYour journey will take you through the wildness of the American Midwest and across the following terrain")
+console.log(
+  "\n\nYour journey will take you through the wildness of the American Midwest and across the following terrain"
+);
+
+// we're probably looking at adding a conditional - booleans
+// if area === "plain"
+// then return plain
+
+const terrainTypes = new Set(); // this only lets me keep unique items in it. I have to say new first otherwise it fires like a normal function
+
 for (const area of journey) {
-    console.log(`\t* ${area}`)
+  if (!terrainTypes.has(area)) {
+    console.log(`\t* ${area}`);
+    terrainTypes.add(area);
+  }
 }

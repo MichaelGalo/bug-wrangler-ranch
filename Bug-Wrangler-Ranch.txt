@@ -1,0 +1,54 @@
+title Bug-Wrangler-Ranch
+
+
+note over Main:defines cattleToDrive variable
+
+Main->Drovers:defines drovers variable, by invoking hireDrovers() function
+
+Drovers->Database:defines allDrovers by fetching the database.drovers value
+
+Database-->Drovers:Returns an array of objects as database.drovers
+
+Drovers-->Main:Returns Array of Objects defined as drovers
+
+Main->Cattle:defines cattle variable by invoking roundup() function, passing in cattleToDrive
+
+Cattle->Database:Fetches cattleTypes array of objects
+
+Cattle-->Main:Returns cattle as an array of objects
+
+Main->Journey:defines journey variable by invoking journeyMaker() function
+
+Journey->Utils:Fetches randomize() function to utilize in journeyMaker()function
+
+Utils-->Journey:Returns randomize() function
+
+Journey-->Main: Returns journey as an array
+
+note over Main:console logs cow graphic using template string
+
+note over Main:console logs message with the length of the drovers array and cattleToDrive Variable utilizing template string
+
+note over Main: defines breedInfo variable as an empty array
+
+loop 
+note over Main: fills breedInfo array with cattle breed type data
+end
+
+note over Main:defines concatenatedBreeds using .join method on breedInfo array items
+
+note over Main: console logs all of the breedInfo array collectively using concatenatedBreeds variable
+
+note over Main:console logs a short message
+
+loop 
+note over Main:console logs the list of selected drovers (an array of objects) first and last names
+end
+
+note over Main:console logs a short message
+
+note over Main:defines terrtainTypes as an empty new set using the Set() method
+
+loop 
+note over Main:collects only unique areas from the journey array to console log instead of every iteration
+end
